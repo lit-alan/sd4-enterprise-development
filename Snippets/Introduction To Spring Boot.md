@@ -15,13 +15,24 @@
 
 
 
-### Controller Method With Path Params
+### Controller Method With Params
 ```java
 @GetMapping("/nice/{fname}/{age}")
 @ResponseBody
-public String saySomethingNice(@PathVariable(required = false) String fname,
-                               @PathVariable(required = false) Integer age) {
+public String saySomethingNiceWithPathParams(@PathVariable String fname,
+                               @PathVariable Integer age) {
     return "Hello " + fname + " you look well for someone aged " + age;
+}
+
+@GetMapping("/nice")
+@ResponseBody
+public String saySomethingNiceWithRequestParams(@RequestParam(required = false) String fname,
+                             @RequestParam(required = false) Integer age) {
+  // Handle cases where fname or age might be null
+  String namePart = (fname != null) ? fname : "Guest";
+  String agePart = (age != null) ? "you look well for someone aged " + age : "age is unknown";
+
+  return "Hello " + namePart + ", " + agePart;
 }
 
 ```
