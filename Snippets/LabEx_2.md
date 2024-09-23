@@ -813,7 +813,7 @@ For the time being, check the console and observe the output
 ### 11. Extend `getOneCustomer()` method
 - Modify this method in the controller to also display any associated customer reviews in the console output. (_For example: Customer 1 has written 4 reviews_).
 
-### 12. Add Remaining CRUD Operations
+### 12. Add Remaining CRUD Operations/endpoints to the controller.
 - Delete a customer by ID (the ID can be passed through the URL).
 - Add a customer (hard-code the data for this within the controller method itself).
 - Update a customer (this will involve the retrival of a customer by ID, and then updating some or all of the data for this customer. Again, you can hard-code the data for the update with the customers ID being passed through the URL).
