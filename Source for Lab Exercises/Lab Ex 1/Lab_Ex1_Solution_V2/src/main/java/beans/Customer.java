@@ -2,10 +2,6 @@ package beans;
 
 import lombok.*;
 
-/**
- * 
- * @author Alan.Ryan
- */
 @AllArgsConstructor
 @Getter
 @Setter
@@ -22,6 +18,11 @@ public class Customer {
     private String comments;
     private String[] hearOptions;
 
+
+
+
+
+
     public Customer() {
         this.name = "";
         this.address = "";
@@ -34,14 +35,15 @@ public class Customer {
 
     }
 
+
      /**
      * @return the hearOptions as text separated by a space
      */
     public String getHearOptionsAsString() {
         
         String options = "";
-        
-         if (hearOptions.length == 0)
+
+         if (hearOptions == null || hearOptions.length == 0  )
            options = "You did not select any options";
          else {
              //iterating over options in array
@@ -52,4 +54,8 @@ public class Customer {
          return options;
              
     }
+    
+    
+    
+    
 }

@@ -14,17 +14,7 @@
         <title>Thanks</title>
     </head>
     <body>
-        <%   
-            
-            ServletContext sc = this.getServletContext();
-            String path = sc.getRealPath("/WEB-INF/CustomerList.txt");
-            Customer c= (Customer) session.getAttribute("customer");
-            CustomerIO.add(c, path);
-//            session.removeAttribute("customer");
-//            session.invalidate();
-        %>
-        
-        <h1>Thanks! Your details have been saved</h1>
+      <h1>Thanks! Your details have been saved</h1>
 
 
         <form id = "home" name="home" method="post" action="index.jsp">
