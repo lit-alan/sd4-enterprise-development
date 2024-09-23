@@ -753,7 +753,7 @@ public class CustomerController {
 
     //This method retrieves a list of all customers from the CustomerService.
     //This method is triggered when someone accesses the URL (customers/) and displays all customers in the view.
-    @GetMapping("/")
+     @GetMapping({"/", ""})
      public ModelAndView getAllCustomers() {
 
          List<Customer> allCustomers = customerService.getAllCustomers();
