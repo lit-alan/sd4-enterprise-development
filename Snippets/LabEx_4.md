@@ -195,3 +195,9 @@ public boolean updateCustomer(Customer customer) {
 ```
 _The updateCustomer method retrieves an existing customer from the database using their ID. If the customer exists, it updates their details (first name, last name, email, password, address, and city) and saves the updated customer back to the database. If the customer is not found, it throws an EntityNotFoundException._
 
+
+If you permanently remove the input field for `customerId` from the form, you'll need an alternative way to pass the `customerId` to the controller. Two common approaches are:
+
+1. **Hidden Field:** You can pass the  `customerId` as a hidden field in the form. When using `@ModelAttribute("customer")`  in the controller, Spring automatically binds all form fields (including the hidden `customerId`) to the corresponding fields of the `Customer` object during form submission. This is the most straightforward approach. 
+
+2. **URL Encoding:** Alternatively, you can encode the `customerId` directly into the action attribute of the form. For example: `<form th:action="@{/customers/update(id=${customer.customerId})}" th:object="${customer}" method="post">`. When the form is submitted, it generates a request like `http://localhost:8888/customers/update?id=15`, where 15 is the `customerId` of the object you want to update. In this case, you'll need to adjust your controller method to capture the `customerId` as a `@RequestParam`.
