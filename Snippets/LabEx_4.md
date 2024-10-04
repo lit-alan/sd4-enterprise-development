@@ -25,7 +25,18 @@ public String deleteCustomer(@PathVariable("id") Integer id, RedirectAttributes 
 }
 
 ```
-<br>
+
+In the `Customer` class will need to set the Cascade type to All above the List of Reviews. For Example:
+
+
+```java
+@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+@ToString.Exclude
+private List<Review> reviewList;
+
+```
+_Without setting the Cascade type, you will not be permitted to delete customers who have left a review(s) and the application will likely crash. This issue is due to a foreign key constraint in the `reviews` table that references the `customers` table. This means you cannot delete a customer if they have associated reviews because the reviews depend on the existence of that customer._
+<br><br>
   
 Once you have the delete feature fully working, consider using a Javascript alert to ask the user the confirm their intention to delete a record. For example:  
 
