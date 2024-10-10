@@ -34,10 +34,8 @@
   - `@Size` for controlling string length.
   - `@Email` for validating the email format.
 - Update the `add_customer` template to ensure that all validation messages are displayed when applicable. Use Spring's form error handling (e.g., `th:if` and `th:errors`) to show validation feedback.
-- Revisit the and add some validation to it using Springs inbuild validators. You can decide on the level and type of validation yourself. Don't forget to add appropriate error messages to the validation annotations.
--  Revisit the  `add_customer` template and ensure that all validation messages will be displayed when necessary.
--  Modify the method in your `CustomerController` that handles the `add_customer` form submission to validate the Customer object. Use `@Valid` and `BindingResult` to capture validation errors, and implement the necessary redirects.
--  Refer to [Lecture 8](https://moodle.midwest.tus.ie/pluginfile.php/1263774/mod_resource/content/1/L8%20Validation.pdf) for detailed guidance on implementing validation.
+- Modify the method in your `CustomerController` that handles the `add_customer` form submission to validate the Customer object. Use `@Valid` and `BindingResult` to capture validation errors, and implement the necessary redirects.
+- Refer to [Lecture 8](https://moodle.midwest.tus.ie/pluginfile.php/1263774/mod_resource/content/1/L8%20Validation.pdf) for detailed guidance on implementing validation.
 
 </br> 
 
