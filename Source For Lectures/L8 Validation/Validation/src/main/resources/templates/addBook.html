@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a book</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Add a Book</h1>
+    <form th:action="@{/book/addBook}" th:object="${aBook}" method="post" class="form-flex">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <ul>
+                <li style="color: red" th:each="err : ${#fields.globalErrors()}" th:text="${err}"></li>
+            </ul>
+        </div>
+        <div class="form-row">
+            <label for="title">Title</label>
+            <input type="text" id="title" th:field="*{title}" name="title" required>
+            <span class="error-message" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+        </div>
+        <div class="form-row">
+            <label for="publisher">Publisher</label>
+            <input type="text" id="publisher" th:field="*{publisher}" name="publisher" required>
+            <span class="error-message" th:if="${#fields.hasErrors('publisher')}" th:errors="*{publisher}"></span>
+        </div>
+        <div class="form-row">
+            <label for="publicationDate">Publication Date</label>
+            <input type="date" id="publicationDate" th:field="*{publicationDate}" name="publicationDate" required>
+            <span class="error-message" th:if="${#fields.hasErrors('publicationDate')}" th:errors="*{publicationDate}"></span>
+        </div>
+        <div class="form-row">
+            <label for="price">Price</label>
+            <input type="text" id="price" th:field="*{price}" name="price" required>
+            <span class="error-message" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+        </div>
+        <div class="form-row">
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" th:field="*{isbn}" name="isbn" required>
+            <span class="error-message" th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}"></span>
+        </div>
+        <div class="form-row">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </div>
+    </form>
+</div>
+<a href="javascript:history.back()">Go Back</a>
+</body>
+</html>

@@ -1,0 +1,200 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Style the heading */
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Form container styling */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Flexbox layout for the form */
+.form-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form row styling */
+.form-row {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    margin-bottom: 5px;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Button styling for submit and reset */
+input[type="submit"],
+input[type="reset"] {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #45a049; /* Darker shade for hover */
+}
+
+/* Specific style for reset button */
+input[type="reset"] {
+    background-color: #f44336; /* Red background */
+}
+
+input[type="reset"]:hover {
+    background-color: #d32f2f; /* Darker shade for hover */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 8px;
+}
+
+/* Table header styling */
+th {
+    background-color: #333;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+/* Table data styling */
+td {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    color: #333;
+}
+
+/* Alternating row colors for better readability */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Specific column adjustments, if necessary */
+th:first-child,
+td:first-child {
+    width: auto; /* Remove fixed width if not needed */
+}
+
+/* Header font size */
+th {
+    font-size: 16px;
+}
+
+/* Data cell font size */
+td {
+    font-size: 14px;
+}
+
+/* Button styles for edit, add, and delete */
+.button {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    width: 80px; /* Fixed width for all buttons */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Add Button Style */
+.add-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.add-button:hover,
+.add-button:focus {
+    background-color: #218838;
+    color: white;
+    text-decoration: none;
+}
+
+/* Edit Button Style */
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover,
+.edit-button:focus {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+/* Delete Button Style */
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover,
+.delete-button:focus {
+    background-color: #bd2130;
+    color: white;
+    text-decoration: none;
+}
+
+body .form-flex .form-row .error-message {
+    color: #dc3545; /* Red color for errors */
+    font-size: 14px;
+    margin-top: 5px;
+    display: block; /* Ensure it's on a new line */
+}
+
+

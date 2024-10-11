@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>View All Books</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Publisher</th>
+    <th>Date of Publication</th>
+    <th>Price</th>
+    <th>ISBN</th>
+    <th>Actions</th>
+  </tr>
+  <tr th:each="b: ${books}">
+
+      <td th:text="${b.bookId}"></td>
+      <td th:text="${b.title}"></td>
+      <td th:text="${b.publisher}"></td>
+      <td th:text="${#calendars.format(b.publicationDate,'dd MMMM yyyy')}"></td>
+      <td th:text="${#numbers.formatCurrency(b.price)}"></td>
+      <td th:text="${b.isbn}"></td>
+      <td>
+          <a href="/book/add" class="button add-button">Add</a>
+          <a th:href="@{'/book/edit/' + ${b.bookId}}" class="button edit-button">Edit</a>
+          <a th:href="@{'/book/delete/' + ${b.bookId}}" class="button delete-button" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a>
+
+      </td>
+
+  </tr>
+  </c:forEach>
+</table>
+
+</body>
+</html>
