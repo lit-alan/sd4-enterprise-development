@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cookie Set</title>
+</head>
+<body>
+<h1 th:text="${message}">Cookie set message</h1>
+<a th:href="@{/getCookie}">Get Cookie</a> |
+<a th:href="@{/removeCookie}">Remove Cookie</a>
+</body>
+</html>

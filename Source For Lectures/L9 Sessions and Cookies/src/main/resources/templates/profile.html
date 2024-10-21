@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Profile</title>
+</head>
+<body>
+<h1 th:text="${greeting}"></h1>
+<p th:text="'Welcome to the home page ' + ${session.userName} + '. Explore our site for more content.'"></p>
+<a th:href="@{/home}">Back to Home</a>
+</body>
+</html>
+

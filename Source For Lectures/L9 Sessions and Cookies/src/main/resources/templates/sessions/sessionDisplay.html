@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Session Display</title>
+</head>
+<body>
+<h1 th:text="${message}">Username from session</h1>
+<a th:href="@{/setUsername}">Set username</a>
+</body>
+</html>

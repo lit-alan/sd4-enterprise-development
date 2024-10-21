@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Logged Out</title>
+</head>
+<body>
+<h1 th:text="${message}">You have been logged out.</h1>
+<a th:href="@{/setUsername}">Set username again</a> |
+<a th:href="@{/displayUsername}">Display username</a>
+</body>
+</html>

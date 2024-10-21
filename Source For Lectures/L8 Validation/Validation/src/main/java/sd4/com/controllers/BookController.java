@@ -21,6 +21,19 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @GetMapping("/books")
+    public String listBooks(Model model, @RequestParam(defaultValue = "0") int page,
+                            @RequestParam(defaultValue = "5") int size) {
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by("title").ascending());
+        Page<Book> bookPage = bookRepository.findAll(pageable);
+
+        model.addAttribute("bookPage", bookPage);
+        return "book-list";
+    }
+
+
+
     @RequestMapping("")
     public ModelAndView displayAllBooks() {
         System.out.println(bookService.findAll().size());

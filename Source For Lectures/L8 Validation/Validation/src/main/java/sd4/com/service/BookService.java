@@ -16,6 +16,62 @@ public class BookService {
     @Autowired
     private BookRepository bookRepo;
 
+    Pageable pageable = PageRequest.of(0, 5, Sort.by("price").descending());
+    Page<Book> pagedBooks = bookRepository.findAll(pageable);
+
+    for (Book book : pagedBooks.getContent()) {
+        System.out.println(book.getTitle() + " - " + book.getPrice());
+    }
+
+
+    public void getSortedBooks() {
+        //Sort by price in descending order
+        Sort sort = Sort.by("price").descending();
+
+        Sort sort = Sort.by("publisher").ascending().and(Sort.by("price").descending());
+
+        List<Book> books = bookRepository.findAll(sort);
+
+        for (Book book : books) {
+            System.out.println(book.getTitle() + " - " + book.getPrice());
+        }
+    }
+
+
+    public void getPagedBooks() {
+        Pageable pageable = PageRequest.of(0, 5);  // First page, 5 records per page
+
+        Page<Book> pagedBooks = bookRepository.findAll(pageable);
+
+        //Get data from the page
+        List<Book> books = pagedBooks.getContent();
+        int totalPages = pagedBooks.getTotalPages();
+        long totalElements = pagedBooks.getTotalElements();
+        boolean isFirstPage = pagedBooks.isFirst();
+        boolean isLastPage = pagedBooks.isLast();
+
+        //Log the title and price of each book
+        for (Book book : books) {
+            System.out.println(book.getTitle() + " - " + book.getPrice());
+        }
+    }
+
+
+
+    List<Object[]> results = bookRepo.averagePricePerPublisher();
+
+    for (Object[] result : results) {
+            String publisher = (String) result[0];  //First element: publisher
+            Double avgPrice = (Double) result[1];   //Second element: average price
+            System.out.println("Publisher: " + publisher + ", Average Price: " + avgPrice);
+    }
+
+
+    public List<Book> getExpensiveBooks(double priceThreshold) {
+        List<Book> expensiveBooks = bookRepo.findBooksMoreExpensiveThan(priceThreshold);
+        return expensiveBooks;
+    }
+
     public Optional<Book> findOne(Long id) {
         return bookRepo.findById(id);
     }
