@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>HOME</title>
+    </head>
+    <body>
+
+        <h1>The Index page for the application and is visible to everyone</h1>
+
+        <div sec:authorize="isAuthenticated()"><a href="/logout">Logout</a> </div>
+        <div sec:authorize="isAnonymous()"><a href="/login">Login</a> </div>
+
+    </body>
+</html>
+

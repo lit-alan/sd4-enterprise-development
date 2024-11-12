@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>HTML Page</title>
+    </head>
+
+
+    Welcome <span sec:authentication="name"></span> <span sec:authentication="principal.authorities"></span>
+
+
+      <br>
+        <h1>This Is The Index Page For The Content Controller</h1>
+        <br>
+        <div sec:authorize="hasAuthority('USER')">User Content Goes Here</div>
+        <br>
+        <div sec:authorize="hasRole('MANAGER')">Manager Content Goes Here</div>
+        <br>
+        <div sec:authorize="hasRole('EMPLOYEE')">Employee Content Goes Here</div>
+        <br>
+        <div sec:authorize="hasAnyRole('MANAGER', 'USER')">Manager AND User Content Goes Here</div>
+        <br>
+
+
+    </body>
+</html>
+
