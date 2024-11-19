@@ -63,7 +63,7 @@ public class Customer implements Serializable {
             name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"), //The foreign key column in the join table (user_roles) that refers to the Customer entity.
             inverseJoinColumns = @JoinColumn(name = "role_id")) //The foreign key column in the join table that refers to the Role entity.
-    //I'm using a Set here so that roles are unique
+    //I'm using a set here so that roles are unique
     //This prevents duplicate entries for the same role on a user.
     private Set<Role> roles = new HashSet();
 

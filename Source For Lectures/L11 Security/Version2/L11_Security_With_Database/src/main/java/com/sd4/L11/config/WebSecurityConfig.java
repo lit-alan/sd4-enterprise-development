@@ -28,21 +28,17 @@ public class WebSecurityConfig {
                 //Disable CSRF protection for simplicity, consider enabling in production
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        //My publicly accessible endpoints
-                        .requestMatchers("/").permitAll()
-                        //Role-based access control for specific endpoints
+                        .requestMatchers("/").permitAll() //Permit everyone to access
                         .requestMatchers(HttpMethod.GET, "/reports/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/admin/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/documents/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/documents/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/content/**").hasAnyRole("CUSTOMER", "ADMIN")
-                        //All other requests require authentication
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .defaultSuccessUrl("/content")
                         .permitAll()
                 );
-        //Return the configured HttpSecurity object
         return http.build();
     }
 

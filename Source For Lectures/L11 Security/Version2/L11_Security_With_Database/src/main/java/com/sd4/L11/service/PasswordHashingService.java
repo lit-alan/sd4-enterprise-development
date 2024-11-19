@@ -8,16 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
-/**
- * Service for hashing and storing plain-text passwords for existing customer accounts.
- *
- * <p>This service retrieves all customers from the database, checks if their passwords
- * are already hashed, and if not, hashes them using a `PasswordEncoder` and updates
- * the database with the hashed passwords.</p>
- *
- * <p>Intended to be used for one-time operations on existing customer data to improve
- * security by hashing any remaining plain-text passwords.</p>
- */
 @Service
 public class PasswordHashingService {
 

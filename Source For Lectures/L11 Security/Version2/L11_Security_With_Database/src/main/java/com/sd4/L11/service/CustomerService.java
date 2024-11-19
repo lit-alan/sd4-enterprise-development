@@ -21,11 +21,6 @@ public class CustomerService  implements UserDetailsService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    /*
-    This method loads a user by their email, retrieves their roles from the database,
-    converts them into authorities, and returns a UserDetails object with the user’s
-    credentials and roles for Spring Security authentication.
-   */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
@@ -60,10 +55,6 @@ public class CustomerService  implements UserDetailsService {
         );
     }
 
-    /*
-    This method converts a set of Role objects into a collection of GrantedAuthority
-    objects prefixed with "ROLE_" for use in authorisation.
-    */
     private Collection<? extends GrantedAuthority> getAuthorities(Set<Role> roles) {
         Set<GrantedAuthority> authorities = new HashSet();
         for (Role role : roles) {
